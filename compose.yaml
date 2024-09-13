@@ -1,7 +1,8 @@
 services:
   julia:
-    build: .
+    image: gitlab.liu.se:5000/samak519/taop33-labs:latest
     network_mode: none
     volumes:
       - .:/app
     working_dir: /app
+    stop_grace_period: 0.5s
