@@ -1,0 +1,19 @@
+variables:
+  GIT_DEPTH: 1
+
+stages:
+  - build
+
+build:
+  stage: build
+  image:
+    name: gcr.io/kaniko-project/executor:v1.23.2-debug
+    entrypoint: [""]
+  script:
+    - /kaniko/executor
+      --context $CI_PROJECT_DIR
+      --dockerfile Dockerfile
+      --destination $CI_REGISTRY_IMAGE:latest
+  only:
+    changes:
+      - Dockerfile

@@ -1,0 +1,7 @@
+services:
+  julia:
+    build: .
+    network_mode: none
+    volumes:
+      - .:/app
+    working_dir: /app
