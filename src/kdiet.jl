@@ -21,13 +21,13 @@ avdelare = repeat('-',60)
 json_data   = read("kdiet1.json", String);
 DATA        = JSON3.read(json_data)
 #-------------------------------------------------------------------------------
-MAT     = DATA.MAT								# index using "j in MAT"
-BEHOV   = DATA.BEHOV							# index using "i in BEHOV"
-pris    = DATA.pris								# pris[j]
-maxport = DATA.maxport							# maxport[j]
-minkrav = DATA.minkrav							# minkrav[i]
-maxkrav = DATA.maxkrav							# maxkrav[i]
-inneh   = DATA.inneh							# inneh[i][j]
+MAT     = DATA.MAT	# index using "j in MAT"
+BEHOV   = DATA.BEHOV	# index using "i in BEHOV"
+pris    = DATA.pris	# pris[j]
+maxport = DATA.maxport	# maxport[j]
+minkrav = DATA.minkrav	# minkrav[i]
+maxkrav = DATA.maxkrav	# maxkrav[i]
+inneh   = DATA.inneh	# inneh[i][j]
 
 #-------------------------------------------------------------------------------
 
