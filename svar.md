@@ -1,4 +1,35 @@
 1.
+    a)
+    >>> OPTIMAL SOLUTION <<<
+
+    ------------------------------------------------------------
+    Optimal objective value:
+    92.5
+    ------------------------------------------------------------
+    Optimal Solution:
+    6×3 DataFrame
+    Row │ variable         value    red_cost
+        │ String           Float64  Float64
+    ─────┼────────────────────────────────────
+    1 │ port[havregryn]      4.0   -3.1875
+    2 │ port[kyckling]       0.0   12.4688
+    3 │ port[agg]            0.0    4.0
+    4 │ port[mjolk]          4.5    0.0
+    5 │ port[paj]            2.0   -3.625
+    6 │ port[bonor]          0.0    4.375
+
+    6×3 DataFrame
+    Row │ constraint         slack    dual
+        │ String             Float64  Float64
+    ─────┼─────────────────────────────────────
+    1 │ minnytta[energi]       0.0  0.05625
+    2 │ minnytta[protein]     -5.0  0.0
+    3 │ minnytta[kalcium]   -534.5  0.0
+    4 │ maxnytta[energi]   97999.0  0.0
+    5 │ maxnytta[protein]  99939.0  0.0
+    6 │ maxnytta[kalcium]  98664.5  0.0
+    ------------------------------------------------------------
+
     b)
         i. 5 mer protein, 534 kalcium
         ii. 0.05625 kr mer per krav energi ökar
@@ -6,6 +37,7 @@
         iv. havregryn
     c)
         i. 92.5 kr -> 98.125 kr
+        
         ii. Ändras ingenting (skuggpris)
         iii. blir 4.5 kr dyrare
     d) 

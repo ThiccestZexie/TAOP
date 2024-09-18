@@ -18,7 +18,7 @@ avdelare = repeat('-',60)
 #-------------------------------------------------------------------------------
 # Input problem DATA from JSON file
 #-------------------------------------------------------------------------------
-json_data   = read("skog1.json", String);
+json_data   = read("kdiet2.json", String);
 DATA        = JSON3.read(json_data)
 #-------------------------------------------------------------------------------
 MAT     = DATA.MAT	# index using "j in MAT"
