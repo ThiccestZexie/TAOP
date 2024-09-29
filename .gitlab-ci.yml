@@ -11,9 +11,9 @@ build:
     entrypoint: [""]
   script:
     - /kaniko/executor
-      --context $CI_PROJECT_DIR
+      --context $CI_PROJECT_DIR/lab1
       --dockerfile Dockerfile
       --destination $CI_REGISTRY_IMAGE:latest
   only:
     changes:
-      - Dockerfile
+      - lab1/Dockerfile
