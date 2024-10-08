@@ -1,0 +1,9 @@
+services:
+  julia:
+    hostname: julia
+    image: gitlab.liu.se:5000/samak519/taop33-labs:latest
+    network_mode: none
+    volumes:
+      - ./src:/src
+    working_dir: /src
+    stop_grace_period: 0.5s
