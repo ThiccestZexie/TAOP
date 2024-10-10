@@ -12,8 +12,8 @@ avdelare = repeat('-',60)
 #-------------------------------------------------------------------------------
 # Input data file
 #-------------------------------------------------------------------------------
-include("floc8.jl")
-e = 1
+include("floc3.jl")
+e = 100
 #-------------------------------------------------------------------------------
 # m						
 # n
@@ -34,11 +34,10 @@ set_optimizer_attribute(LOKAL, "msg_lev", GLPK.GLP_MSG_ON)
 # Define variables
 # n = j, m = i
 #----------------------------------------------------------------
-@variable(LOKAL,x[1:m,1:n] >= 0) # Int or Relaxed?
+@variable(LOKAL,x[1:m,1:n] >= 0) 
+#@variable(LOKAL,0 <= y[1:m] <= 1)
 @variable(LOKAL,y[1:m], Bin)
 #----------------------------------------------------------------
-
-
 #----------------------------------------------------------------
 # Add Objective function
 #----------------------------------------------------------------
@@ -49,21 +48,16 @@ set_optimizer_attribute(LOKAL, "msg_lev", GLPK.GLP_MSG_ON)
 	sum(e*f[i]*y[i] for i in 1:m)
 	)
 #----------------------------------------------------------------
-
-
-#----------------------------------------------------------------
 # Add Constraints
 #----------------------------------------------------------------
 
 @constraint(LOKAL, [i in 1:m], sum(x[i,j] for j in 1:n) <= s[i]*y[i])
 
 @constraint(LOKAL, [j in 1:n], sum(x[i,j] for i in 1:m) == d[j])
-
-
 #----------------------------------------------------------------
 # Uppgift 6 constraint
 #----------------------------------------------------------------
-@constraint(LOKAL, con3[j in 1:n, i in 1:m], x[i,j] <= d[j]*y[i])
+#@constraint(LOKAL, con3[j in 1:n, i in 1:m], x[i,j] <= d[j]*y[i])
 
 #-------------------------------------------------------------------------------
 # Solve the optimization problem
@@ -88,7 +82,6 @@ istime = cmp(string(status),"TIME_LIMIT")
 # In the following, the objective function value and the opened facilitities (y[i]=1).
 # If you have another name for variable "y", change y[i] to your variable in the following.
 #------------------------------------------------------------------------------------------
-
 if isopt == 0
 	println("\n>>> OPTIMAL SOLUTION <<<\n")
     println("Optimal objective value: ", round(objective_value(LOKAL),digits=3))
@@ -110,7 +103,6 @@ elseif istime == 0
 	end
 elseif isinfeas==0
     println("Model infeasible")
-
 end
 
 println(avdelare)
