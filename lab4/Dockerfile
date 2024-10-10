@@ -8,6 +8,7 @@ Pkg.add("HiGHS"); \
 Pkg.add("Ipopt"); \
 Pkg.add("Plots"); \
 Pkg.add("DataFrames"); \
-Pkg.add("JSON3")'
+Pkg.add("JSON3"); \
+Pkg.add("GLPK")'
 
 CMD ["tail", "-f", "/dev/null"]

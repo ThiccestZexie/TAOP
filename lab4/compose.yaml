@@ -1,7 +1,8 @@
 services:
   julia:
     hostname: julia
-    image: gitlab.liu.se:5000/samak519/taop33-labs:latest
+    #image: gitlab.liu.se:5000/samak519/taop33-labs:latest
+    build: .
     network_mode: none
     volumes:
       - ./src:/src

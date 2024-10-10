@@ -32,8 +32,10 @@ set_optimizer_attribute(LOKAL, "msg_lev", GLPK.GLP_MSG_ON)
 
 #----------------------------------------------------------------
 # Define variables
+# n = j, m = i
 #----------------------------------------------------------------
-
+@variable(LOKAL,x[1:m,1:n] >=0)
+@variable(LOKAL,y[1:m], Bin)
 #----------------------------------------------------------------
 
 
@@ -41,6 +43,11 @@ set_optimizer_attribute(LOKAL, "msg_lev", GLPK.GLP_MSG_ON)
 # Add Objective function
 #----------------------------------------------------------------
 
+@objective(LOKAL, Min, 
+	sum(c[i,j]*x[i,j] for i in 1:m, j in 1:n)
+	+
+	sum(e*f[i]*y[i] for i in 1:m)
+	)
 #----------------------------------------------------------------
 
 
@@ -48,7 +55,9 @@ set_optimizer_attribute(LOKAL, "msg_lev", GLPK.GLP_MSG_ON)
 # Add Constraints
 #----------------------------------------------------------------
 
+@constraint(LOKAL, [i in 1:m], sum(x[i,j] for j in 1:n) <= s[i]*y[i])
 
+@constraint(LOKAL, [j in 1:n], sum(x[i,j] for i in 1:m) == d[j])
 
 #----------------------------------------------------------------
 
