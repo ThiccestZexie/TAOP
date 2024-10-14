@@ -1,10 +1,10 @@
 1.
 antal variable: m*n + m
-antal bivillkor = 2*m*n
+antal bivillkor = m+n
 
 2.
 antal variabl: m*n + m
-antal bivillkor: 3*m*n
+antal bivillkor: m+n+nm
 
 4.
 ..
@@ -65,7 +65,7 @@ Kost: 244101
 Noder: 197
 Iter: 745
 tid: 0.010099172592163086
-LP: 244101
+LP: 85788,931
 
 P2  
 Kost: 244101
@@ -108,7 +108,7 @@ Iter: 3522
 tid: 0.3012418746948242
 LP: 104059.413
 P2  
-Kost: 106668
+Kost: 104059,413
 Noder: 1
 Iter: 729
 tid: 0.03040599822998047
